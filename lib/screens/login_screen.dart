@@ -18,7 +18,7 @@ class _LoginScreenState extends State<LoginScreen> {
           SingleChildScrollView(
             child: Container(
               margin: EdgeInsets.only(
-                top: 10,
+                top: 30,
                 left: 26,
                 right: 26,
                 bottom: 120
@@ -32,7 +32,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     height: 200,
                   ),
                   SizedBox(
-                    height: 70,
+                    height: 20,
                   ),
                   Container(
                     decoration: BoxDecoration(
@@ -86,8 +86,10 @@ class _LoginScreenState extends State<LoginScreen> {
                         SizedBox(
                           height: 10,
                         ),
-                        Text("Esqueceu a sua senha ?",
-                          style: TextStyle(color: Colors.deepPurple, fontSize: 15),
+                        FlatButton(
+                          child: Text('Esqueceu sua senha ?'),
+                          textColor: Colors.deepPurple,
+                          onPressed: (){},
                         ),
                         SizedBox(
                           height: 20,
