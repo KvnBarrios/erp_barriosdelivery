@@ -1,3 +1,4 @@
+import 'package:erpbarriosdelivery/screens/home_screen.dart';
 import 'package:erpbarriosdelivery/widgets/input_field.dart';
 import 'package:flutter/material.dart';
 
@@ -10,7 +11,7 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.deepPurple,
+      backgroundColor: Colors.white,
       body: Stack(
         alignment: Alignment.center,
         children: <Widget>[
@@ -79,7 +80,10 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                             color: Colors.deepPurple,
                             child: Text("Entrar"),
-                            onPressed: (){},
+                            onPressed: (){
+                              Navigator.push(context, MaterialPageRoute(builder: (context) =>
+                              HomeScreen()),);
+                            },
                             textColor: Colors.white,
                           ),
                         ),
