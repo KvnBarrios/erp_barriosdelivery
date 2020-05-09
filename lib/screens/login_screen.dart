@@ -1,4 +1,5 @@
 import 'package:erpbarriosdelivery/screens/home_screen.dart';
+import 'package:erpbarriosdelivery/screens/teste.dart';
 import 'package:erpbarriosdelivery/widgets/input_field.dart';
 import 'package:flutter/material.dart';
 
@@ -82,7 +83,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             child: Text("Entrar"),
                             onPressed: (){
                               Navigator.push(context, MaterialPageRoute(builder: (context) =>
-                              HomeScreen()),);
+                                  HomePage()),);
                             },
                             textColor: Colors.white,
                           ),

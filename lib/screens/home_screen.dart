@@ -1,130 +1,84 @@
 import 'package:flutter/material.dart';
 
-class HomeScreen extends StatelessWidget {
+void main() => runApp(MyApp());
+
+/// This Widget is the main application widget.
+class MyApp extends StatelessWidget {
+  static const String _title = 'Flutter Code Sample';
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: _title,
+      home: HomeScreen(),
+    );
+  }
+}
+
+class HomeScreen extends StatefulWidget {
+  HomeScreen({Key key}) : super(key: key);
+
+  @override
+  _MyStatefulWidgetState createState() => _MyStatefulWidgetState();
+}
+
+class _MyStatefulWidgetState extends State<HomeScreen> {
+  int _selectedIndex = 0;
+  static const TextStyle optionStyle =
+  TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
+  static const List<Widget> _widgetOptions = <Widget>[
+    Text(
+      'Pedidos aqui',
+      style: optionStyle,
+    ),
+    Text(
+      'Index 1: Business',
+      style: optionStyle,
+    ),
+    Text(
+      'Index 2: School',
+      style: optionStyle,
+    ),
+    Text(
+      'Index 2: School',
+      style: optionStyle,
+    ),
+  ];
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-    title: const Text('Resumo diario'),
-        backgroundColor: Colors.grey,
-        centerTitle: true,
-    ),
-    body: GridView.count(
-    // Create a grid with 2 columns. If you change the scrollDirection to
-    // horizontal, this produces 2 rows.
-    crossAxisCount: 1,
-    crossAxisSpacing: 0,
-    padding: EdgeInsets.only(bottom: 90),
-    childAspectRatio: 2.5,
-
-    // Generate 100 widgets that display their index in the List.
-    children: <Widget>[
-      Container(
-        margin: EdgeInsets.only(top: 20, bottom: 20, left: 20, right: 20),
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-              begin: Alignment.topRight,
-              end: Alignment.bottomLeft,
-              colors: [Colors.indigo, Colors.lightBlueAccent]),
-            shape: BoxShape.rectangle,
-            borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(10.0),
-                topRight: Radius.circular(10.0),
-                bottomLeft: Radius.circular(10.0),
-                bottomRight: Radius.circular(10.0)
-            ),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.grey.withOpacity(0.3),
-              spreadRadius: 5,
-              blurRadius: 7,
-              offset: Offset(0, 3), // changes position of shadow
-            ),
-          ],
-        ),
-        child: SizedBox(child: FlatButton(child: Text("PEDIDOS: 9", style: TextStyle(fontSize: 36,color: Colors.white),), onPressed: () {
-        },)),
+        title: const Text('Barrios Delivery'),
       ),
-      Container(
-        margin: EdgeInsets.only(top: 20, bottom: 20, left: 20, right: 20),
-        decoration: BoxDecoration(
-            gradient: LinearGradient(
-            begin: Alignment.topRight,
-            end: Alignment.bottomLeft,
-            colors: [Colors.deepPurple, Colors.purple]),
-            shape: BoxShape.rectangle,
-            borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(10.0),
-                topRight: Radius.circular(10.0),
-                bottomLeft: Radius.circular(10.0),
-                bottomRight: Radius.circular(10.0)
-            ),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.grey.withOpacity(0.3),
-              spreadRadius: 5,
-              blurRadius: 7,
-              offset: Offset(0, 3), // changes position of shadow
-            ),
-          ],
-        ),
-        child: SizedBox(child: FlatButton(child: Text("CAIXA RS 420.00", style: TextStyle(fontSize: 36,color: Colors.white),), onPressed: () {
-        },)),
+      body: Center(
+        child: _widgetOptions.elementAt(_selectedIndex),
       ),
-      Container(
-        margin: EdgeInsets.only(top: 20, bottom: 20, left: 20, right: 20),
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-              begin: Alignment.topRight,
-              end: Alignment.bottomLeft,
-              colors: [Colors.red, Colors.redAccent]),
-            shape: BoxShape.rectangle,
-            borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(10.0),
-                topRight: Radius.circular(10.0),
-                bottomLeft: Radius.circular(10.0),
-                bottomRight: Radius.circular(10.0)
-            ),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.grey.withOpacity(0.3),
-              spreadRadius: 5,
-              blurRadius: 7,
-              offset: Offset(0, 3), // changes position of shadow
-            ),
-          ],
-        ),
-        child: SizedBox(child: FlatButton(child: Text("PRODUÇÃO", style: TextStyle(fontSize: 36,color: Colors.white),), onPressed: () {
-        },)),
+      bottomNavigationBar: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.add_shopping_cart),
+            title: Text('Pedidos'),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.attach_money),
+            title: Text('Caixa'),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.assignment),
+            title: Text('Estoque'),
+          ),
+        ],
+        currentIndex: _selectedIndex,
+        selectedItemColor: Colors.purple[800],
+        onTap: _onItemTapped,
       ),
-      Container(
-        margin: EdgeInsets.only(top: 20, bottom: 20, left: 20, right: 20),
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-              begin: Alignment.topRight,
-              end: Alignment.bottomLeft,
-              colors: [Colors.green, Colors.green[400]]),
-            shape: BoxShape.rectangle,
-            borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(10.0),
-                topRight: Radius.circular(10.0),
-                bottomLeft: Radius.circular(10.0),
-                bottomRight: Radius.circular(10.0)
-            ),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.grey.withOpacity(0.3),
-              spreadRadius: 5,
-              blurRadius: 7,
-              offset: Offset(0, 3), // changes position of shadow
-            ),
-          ],
-        ),
-        child: SizedBox(child: FlatButton(child: Text("ESTOQUE", style: TextStyle(fontSize: 36,color: Colors.white),), onPressed: () {
-        },)),
-      )
-    ],
-    )
     );
- }
+  }
 }
