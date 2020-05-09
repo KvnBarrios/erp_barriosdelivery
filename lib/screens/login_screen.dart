@@ -83,7 +83,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             child: Text("Entrar"),
                             onPressed: (){
                               Navigator.push(context, MaterialPageRoute(builder: (context) =>
-                                  HomePage()),);
+                                  HomeScreen()),);
                             },
                             textColor: Colors.white,
                           ),

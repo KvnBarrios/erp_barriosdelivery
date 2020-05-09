@@ -1,3 +1,5 @@
+import 'package:erpbarriosdelivery/widgets/container_caixa.dart';
+import 'package:erpbarriosdelivery/widgets/pedidos.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
@@ -24,24 +26,15 @@ class HomeScreen extends StatefulWidget {
 
 class _MyStatefulWidgetState extends State<HomeScreen> {
   int _selectedIndex = 0;
-  static const TextStyle optionStyle =
-  TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
-  static const List<Widget> _widgetOptions = <Widget>[
+      List<Widget> _widgetOptions = <Widget>[
+        SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: SingleChildScrollView(
+                scrollDirection: Axis.vertical,
+                child: tabelapedidos())),
+        containerCaixa(),
     Text(
-      'Pedidos aqui',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 1: Business',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 2: School',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 2: School',
-      style: optionStyle,
+      'Index 2: School'
     ),
   ];
 
@@ -82,3 +75,4 @@ class _MyStatefulWidgetState extends State<HomeScreen> {
     );
   }
 }
+
