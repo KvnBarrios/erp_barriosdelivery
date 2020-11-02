@@ -1,7 +1,11 @@
+import 'package:erpbarriosdelivery/material/mychart2Items.dart';
 import 'package:erpbarriosdelivery/widgets/container_caixa.dart';
 import 'package:erpbarriosdelivery/widgets/pedidos.dart';
 import 'package:flutter/material.dart';
-
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
 void main() => runApp(MyApp());
 
 /// This Widget is the main application widget.
@@ -26,16 +30,10 @@ class HomeScreen extends StatefulWidget {
 
 class _MyStatefulWidgetState extends State<HomeScreen> {
   int _selectedIndex = 0;
-      List<Widget> _widgetOptions = <Widget>[
-        SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: SingleChildScrollView(
-                scrollDirection: Axis.vertical,
-                child: tabelapedidos())),
-        containerCaixa(),
-    Text(
-      'Index 2: School'
-    ),
+  List<Widget> _widgetOptions = <Widget>[
+    tabelapedidos(),
+    containerCaixa(),
+    containerCaixa()
   ];
 
   void _onItemTapped(int index) {
@@ -71,6 +69,15 @@ class _MyStatefulWidgetState extends State<HomeScreen> {
         currentIndex: _selectedIndex,
         selectedItemColor: Colors.purple[800],
         onTap: _onItemTapped,
+      ),
+      floatingActionButton: FloatingActionButton(
+          backgroundColor: Colors.deepPurple,
+          child: Icon(
+              FontAwesomeIcons.plus
+          ),
+          onPressed: () {
+
+          }
       ),
     );
   }

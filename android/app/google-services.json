@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "597150223179",
+    "firebase_url": "https://erp-delivery.firebaseio.com",
+    "project_id": "erp-delivery",
+    "storage_bucket": "erp-delivery.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:597150223179:android:ae5ff45787f9b44e3c36ce",
+        "android_client_info": {
+          "package_name": "com.erp.deliveryapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "597150223179-c7mhb5fse085bv6cp3bvc1ttqev21oeq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB-UnKLqj8q7gMEngEzITqFuEk6zkF9u9Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "597150223179-c7mhb5fse085bv6cp3bvc1ttqev21oeq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
